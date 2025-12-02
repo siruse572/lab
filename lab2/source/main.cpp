@@ -1,4 +1,4 @@
-#define GLM_ENABLE_EXPERIMENTAL
+ï»¿#define GLM_ENABLE_EXPERIMENTAL
 #define GLM_SWIZZLE
 #include <iostream>
 #include <glm/glm.hpp>
@@ -8,12 +8,41 @@ const double RADIANS_TO_DEGREES = 180.0 / glm::pi<float>();
 
 int main()
 {
-	glm::vec3 v(2, -1, 1);  //¹éÅÍ »ı¼º
+	/* <cos@ êµ¬í•˜ê¸°>
+	glm::vec3 v(2, -1, 1);  //ë°±í„° ìƒì„±
 	glm::vec3 u(1, 1, 2);
-	float d = glm::dot(v, u);  //d¿¡ v¿Í uÀÇ ³»ÀûÀ» ÀúÀå
-	float c = d / (glm::length(u) * glm::length(v));  //cº¯¼ö¿¡ cos@ / |a||b|¸¦ ÇÏ¿© cos@¸¦ ±¸ÇÔ
+	float d = glm::dot(v, u);  //dì— vì™€ uì˜ ë‚´ì ì„ ì €ì¥
+	float c = d / (glm::length(u) * glm::length(v));  //cë³€ìˆ˜ì— cos@ / |a||b|ë¥¼ í•˜ì—¬ cos@ë¥¼ êµ¬í•¨
 	float deg = glm::acos(c) * RADIANS_TO_DEGREES;  // 
 	std::cout << deg << std::endl;
-	return 0;
+	*/
+	//glm::radians(60);  ì•Œì•„ë³´ê¸°
+	//degrees();
 
+	/*
+	glm::vec3 u (2, 0, 0);
+	glm::vec3 v(-1, 1, 0);
+	v = glm::normalize(v);
+	u = glm::normalize(u);
+	float d = glm::dot(u, v);
+	std::cout << d << std::endl;
+	*/
+	
+	/* < ë°±í„° ìª¼ê°œê¸°>
+	glm::vec3 v(1, 2, -1);
+	glm::vec3 u(0, 1, 0);
+	glm::vec3 b = glm::dot(v, u) * u;
+	glm::vec3 a = v - b;
+	std::cout << "a: " << glm::to_string(a) << std::endl;
+	std::cout << "b: " << glm::to_string(b) << std::endl;
+	return 0;
+	*/
+
+	glm::vec3 n(0, 1, 0);   //í‰ë©´ì—ì„œì˜ ìˆ˜ì§
+	glm::vec3 p(1, 0, 1);  //í‰ë©´ ìœ„ì—ì„œì˜ ì 
+	glm::vec3 x(-3, 3, 2);  //í‰ë©´ ë°–ì˜ ì 
+	glm::vec3 v = x â€“ p;
+	n = glm::normalize(n);
+	float d = glm::dot(v, u);
+	return 0;
 }
